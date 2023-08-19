@@ -1,0 +1,210 @@
+/* Preserve original .css code if possible */
+:root {
+    --primary-color: #FEE8B0;
+    --secondary-color: #ff6347;
+    --background-color: #EEEEEE;
+
+    --main-text-color: #222831;
+    --secondary-text-color: #393E46;
+
+    --navbar-color: #f605fe;
+    --secondary-navbar-color: #25bbe3;
+    --footer-color: #EFEAD8;
+
+    --positive-action-color: #7C9070;
+    --negative-action-color: #F97B22;
+    --interactive-element-color: #F6F1E9;
+
+    --button-color: #25bbe3;
+    --button-clear-color: #F6F1E9;
+}
+
+/* Reset some default styles */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+}
+
+/* Navigation bar Styles */
+nav, footer {
+  /* Update the navbar with gradient background */
+    /* background-color: black; */
+    background: -webkit-linear-gradient(to right, 
+                    var(--navbar-color), var(--secondary-navbar-color));
+    background: linear-gradient(to right, 
+                    var(--navbar-color), var(--secondary-navbar-color));
+    color: white;
+}
+
+nav .logo {
+  min-width: 250px;
+  padding: 15px;
+}
+nav .logo img { 
+  /* THIS DOESNT WORK YET IDK WHY LOL */
+  width: 30;
+
+  border-radius: 50%;
+  border: 5px solid var(--background-color);
+  background-color: var(--background-color);
+}
+
+nav a{
+  color: white ;
+  text-decoration: none;
+  padding: 18px 25px ;
+  display: block;
+}
+
+
+nav .desktop{
+  display: flex;
+  justify-content: space-between;/* Alineación horizontal entre items */
+  align-items: center; /* Alineación vertical entre items */
+  pad: 0 20px;
+}
+
+nav .desktop .primary {
+  display: flex;
+  align-items: center;
+}
+
+nav .desktop .primary a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  padding: 18px 25px;
+}
+
+nav .desktop .primary a:hover {
+  color: var(--main-text-color);
+  background-color: var(--interactive-element-color);
+  transition: background-color 0.35s ease 0s;
+}
+
+nav .desktop .material-symbols-outlined{
+  margin-right: 7px;
+}
+
+
+
+nav .mobile{
+  display: none;
+}
+
+nav .mobile .header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* nav .mobile .header .more {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+} */
+nav .mobile .header .more button{
+  border: none;
+  background: rgba(0,0,0,0);
+  padding: 15px;
+  cursor: pointer;
+}
+nav .mobile .header .more .material-symbols-outlined{
+  color:white;
+}
+
+nav .collapsed{
+  display: none;
+}
+
+nav .desktop .primary,
+nav .desktop .secondary{
+  display: flex;
+}
+nav .desktop .secondary.mini{
+  display: none;
+}
+
+
+/* Hero Section Styles */
+.hero {
+  background-image: url('images/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--main-text-color);
+  text-align: center;
+  padding: 100px 0;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: var(--button-color);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--button-clear-color);
+  color: var(--main-text-color);
+}
+
+/* Footer Styles */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem; 
+  background-color: #200122;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+
+@media screen and (max-width: 880px) {
+    nav .logo{
+      min-width: 100px;
+    }
+  
+    nav .secondary.full{
+      display:none;
+    }
+    nav .secondary.mini{
+      display: block !important;
+    }
+    nav .secondary.mini .submenu{
+      position: absolute; /* Por ser un menu emergente */
+      display:none;
+      background-color: black;
+      width: 175px; /* Ancho del menú */
+      right: 0; /* Para que se pegue a la derecha */
+    }
+  
+    nav .secondary.mini:hover .submenu{  /* Para hacer aparecer el submenu */
+      display:block;
+    }
+  }
+  
+  @media screen and (max-width: 500px){
+    nav .desktop{
+      display: none;
+    }
+    nav .mobile{
+      display: block;
+    }
+  }
